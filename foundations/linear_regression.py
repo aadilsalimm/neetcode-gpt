@@ -6,11 +6,7 @@ class Solution:
     def get_model_prediction(self, X: NDArray[np.float64], weights: NDArray[np.float64]) -> NDArray[np.float64]:
         # X is (n, m), weights is (m,) -> return (n,) predictions
         # Round to 5 decimal places
-        y = []
-        for i in range(len(X)):
-            y_n = np.round(np.sum(X[i] * weights), 5)
-            y.append(y_n)
-        return np.array(y, dtype=np.float64)
+        return np.round(X @ weights, 5)
         
 
 
